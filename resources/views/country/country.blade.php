@@ -21,7 +21,7 @@
         
         <div class="card">
             <div class="card-header">
-                <h2>Country Table</h2>
+                <button class="btn btn-info waves-effect waves-button waves-float" id="sa-title">Add Flight</button>
             </div>
 
             <div class="card-body table-responsive">
@@ -55,4 +55,10 @@
 
 {{-- page level scripts --}}
 @section('footer_scripts')
+    <script>
+        //A title with a text under
+        $('#sa-title').click(function(){
+            swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+        });
+    </script>
 @stop

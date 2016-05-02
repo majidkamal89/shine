@@ -16,8 +16,8 @@ Route::group(array('before' => 'auth'), function () {
 	Route::get('logout', 'UserController@logoutUser');
 	
 	// Country route
-	Route::group(array('prefix' => '/'), function() {
-		Route::get('/country', array('as' => 'country', 'uses' => 'CountryController@index'));
+	Route::group(array('prefix' => '/country'), function() {
+		Route::get('/', array('as' => 'country', 'uses' => 'CountryController@index'));
 	});
 	
 	// Flight route
