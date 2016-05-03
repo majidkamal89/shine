@@ -12,6 +12,8 @@ class Country extends Model
      * @var string
      */
     protected $table = 'country';
+	protected $fillable = array('country_name','status');
+	public $timestamps = false;
 
     public function index() {
 		$countries = self::paginate(2);

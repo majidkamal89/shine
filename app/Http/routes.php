@@ -29,6 +29,11 @@ Route::get('login', 'UserController@login');
 Route::post('login', 'UserController@postLogin');
 Route::post('register', 'UserController@registerUser');
 
+Route::get('/getData', array('as' => 'getData','uses' => 'CountryController@getData'));
+Route::post('/getData', array('as' => 'postData','uses' => 'CountryController@postData'));
+Route::post('/deleteData', array('as' => 'deleteData','uses' => 'CountryController@deleteData'));
+Route::post('/updateData', array('as' => 'update','uses' => 'CountryController@updateData'));
+
 
 //Route::get('User/signup', array('as' => 'signup', 'uses' => 'UserController@signUp'));
 

@@ -97,4 +97,48 @@ class CountryController extends Controller
     {
         //
     }
+
+
+    public function getData()
+    {
+        $data = Country::where('status', 0)->get();
+        return json_encode($data);
+    }
+
+    public function postData(Request $request)
+    {
+        $dataArray = array(
+            'country_name' => $request->country_name,
+            'status' => 0
+        );
+        $data = Country::create($dataArray);
+        if($data) {
+            return $this->getData();
+        }
+        return array('error' => 'Error: Something went wrong, try again later!');
+
+    }
+
+    public function deleteData(Request $request)
+    {
+        $status = ($request->status == 1) ? 0:1;
+        $data = Country::where('id', $request->id)->update(array('status' => $status));
+        if($data) {
+            return array('success' => 'Record deleted successfully!');
+        }
+        return array('error' => 'There is something wrong, try again later!');
+    }
+
+    public function updateData(Request $request)
+    {
+        $dataArray = array(
+            'country_name' => $request->country_name,
+            'status' => $request->status
+        );
+        $data = Country::where('id', $request->id)->update($dataArray);
+        if($data) {
+            return array('success' => 'Record updated successfully!');
+        }
+        return array('error' => 'There is something wrong, try again later!');
+    }
 }
